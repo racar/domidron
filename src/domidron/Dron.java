@@ -31,7 +31,8 @@ public class Dron {
 	private char direction;  //Puede ser N-Norte, S-sur, W-oeste, E-este
 	
 	public Dron(Plano plano,int pos_x, int pos_y){
-		
+		this.position_x = pos_x;
+		this.position_y = pos_y;
 	}
 	
 	public void setRuta(Ruta ruta){
@@ -43,6 +44,29 @@ public class Dron {
 	}
 	
 	public void actualizaPosicion(char command){
-		
+		if(command == 'A') {
+			switch(this.getDirection()){
+				case 'N': ++this.position_x; break;
+				case 'E': ++this.position_y; break;
+				case 'S': --this.position_x; break;
+				case 'W': --this.position_x; break;			
+			}
+			
+		}else if(command == 'I'){
+			switch(this.getDirection()){
+			case 'N': this.setDirection('W'); break;
+			case 'E': this.setDirection('N'); break;
+			case 'S': this.setDirection('E'); break;
+			case 'W': this.setDirection('S'); break;
+			}
+			
+		}else if(command == 'D'){
+			switch(this.getDirection()){
+			case 'N': this.setDirection('E'); break;
+			case 'E': this.setDirection('S'); break;
+			case 'S': this.setDirection('W'); break;
+			case 'W': this.setDirection('N'); break;
+			}
+		}
 	}
 }
