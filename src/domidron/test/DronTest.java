@@ -110,7 +110,7 @@ public class DronTest {
 		dron1.setDirection('N');
 		dron1.deliver(ruta);
 		
-		assertEquals(-3,dron1.getPosition_x());
+		assertEquals(-1,dron1.getPosition_x());
 		assertEquals(3,dron1.getPosition_y());
 		assertEquals('S',dron1.getDirection());
 		
@@ -128,9 +128,49 @@ public class DronTest {
 		dron1.setDirection('S');
 		dron1.deliver(ruta);
 		
+		assertEquals(-2,dron1.getPosition_x());
+		assertEquals(0,dron1.getPosition_y());
+		assertEquals('W',dron1.getDirection());
+		
+	}
+	/******** CASOS POR REVISAR
+	/********* REVISAR SI LAS RUTAS 2 y 3  DEL DOCUMENTO SON SOLO DE REFERENCIA
+	/********* tests con las dos rutas descritas en el documento que no me dan el resultado esperado*******/
+	
+	@Test
+	public void deliverTestRuta2Documento(){
+		int x[] = {-5,5};
+		int y[] = {-5,5};
+		ArrayList<String> entregas = new ArrayList<String>();
+		entregas.add("DDAIAD");
+		Ruta ruta = new Ruta(entregas);
+		
+		Plano barrio = new Plano(x,y);
+		Dron dron1 = new Dron(barrio,-2,4); //lo ubica en la posición -2,4 del plano
+		dron1.setDirection('N');
+		dron1.deliver(ruta);
+		
+		assertEquals(-3,dron1.getPosition_x());
+		assertEquals(3,dron1.getPosition_y());
+		assertEquals('S',dron1.getDirection());
+		
+	}
+	@Test
+	public void deliverTestRuta3Documento(){
+		int x[] = {-5,5};
+		int y[] = {-5,5};
+		ArrayList<String> entregas = new ArrayList<String>();
+		entregas.add("AAIADAD");
+		Ruta ruta = new Ruta(entregas);
+		
+		Plano barrio = new Plano(x,y);
+		Dron dron1 = new Dron(barrio,-3,3); //lo ubica en la posición -3,3 del plano
+		dron1.setDirection('S');
+		dron1.deliver(ruta);
+		
 		assertEquals(-4,dron1.getPosition_x());
 		assertEquals(2,dron1.getPosition_y());
-		assertEquals('E',dron1.getDirection());
+		assertEquals('W',dron1.getDirection());
 		
 	}
 
