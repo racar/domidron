@@ -40,7 +40,8 @@ public class Dron {
 
 	private char direction;  //Puede ser N-Norte, S-sur, W-oeste, E-este
 	
-	public Dron(Plano plano,int pos_x, int pos_y){
+	public Dron(String id, Plano plano,int pos_x, int pos_y){
+		this.id = id;
 		this.position_x = pos_x;
 		this.position_y = pos_y;
 	}
@@ -57,6 +58,7 @@ public class Dron {
 								 for(int i= 0; i < comandos.length; ++i){
 									 actualizaPosicion(comandos[i]);
 								 }
+								reportarPosicion(); 
 				
 							  }
 		);
@@ -89,5 +91,9 @@ public class Dron {
 			case 'W': this.setDirection('N'); break;
 			}
 		}
+	}
+	
+	private void reportarPosicion(){
+		
 	}
 }

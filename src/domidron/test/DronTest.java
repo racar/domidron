@@ -17,7 +17,7 @@ public class DronTest {
 		int x[] = {-5,5};
 		int y[] = {-5,5};
 		Plano barrio = new Plano(x,y);
-		Dron dron1 = new Dron(barrio,0,0); //lo ubica en la posición 0,0 del plano
+		Dron dron1 = new Dron("D1",barrio,0,0); //lo ubica en la posición 0,0 del plano
 		dron1.setDirection('N');
 		dron1.actualizaPosicion('A');
 		assertEquals(0,dron1.getPosition_x());
@@ -30,7 +30,7 @@ public class DronTest {
 		int x[] = {-5,5};
 		int y[] = {-5,5};
 		Plano barrio = new Plano(x,y);
-		Dron dron1 = new Dron(barrio,2,3); //lo ubica en la posición 2,3 del plano
+		Dron dron1 = new Dron("D1",barrio,2,3); //lo ubica en la posición 2,3 del plano
 		dron1.setDirection('N');
 		dron1.actualizaPosicion('A');
 		assertEquals(2,dron1.getPosition_x());
@@ -43,7 +43,7 @@ public class DronTest {
 		int x[] = {-5,5};
 		int y[] = {-5,5};
 		Plano barrio = new Plano(x,y);
-		Dron dron1 = new Dron(barrio,0,0); //lo ubica en la posición 0,0 del plano
+		Dron dron1 = new Dron("D1",barrio,0,0); //lo ubica en la posición 0,0 del plano
 		dron1.setDirection('N');
 		dron1.actualizaPosicion('I');
 		assertEquals(0,dron1.getPosition_x());
@@ -56,7 +56,7 @@ public class DronTest {
 		int x[] = {-5,5};
 		int y[] = {-5,5};
 		Plano barrio = new Plano(x,y);
-		Dron dron1 = new Dron(barrio,0,0); //lo ubica en la posición 0,0 del plano
+		Dron dron1 = new Dron("D1",barrio,0,0); //lo ubica en la posición 0,0 del plano
 		dron1.setDirection('N');
 		dron1.actualizaPosicion('I');
 		assertEquals('W',dron1.getDirection());
@@ -87,7 +87,7 @@ public class DronTest {
 		Ruta ruta = new Ruta(entregas);
 		
 		Plano barrio = new Plano(x,y);
-		Dron dron1 = new Dron(barrio,0,0); //lo ubica en la posición 0,0 del plano
+		Dron dron1 = new Dron("D1",barrio,0,0); //lo ubica en la posición 0,0 del plano
 		dron1.setDirection('N');
 		dron1.deliver(ruta);
 		
@@ -106,7 +106,7 @@ public class DronTest {
 		Ruta ruta = new Ruta(entregas);
 		
 		Plano barrio = new Plano(x,y);
-		Dron dron1 = new Dron(barrio,-2,4); //lo ubica en la posición 0,0 del plano
+		Dron dron1 = new Dron("D1",barrio,-2,4); //lo ubica en la posición 0,0 del plano
 		dron1.setDirection('N');
 		dron1.deliver(ruta);
 		
@@ -124,7 +124,7 @@ public class DronTest {
 		Ruta ruta = new Ruta(entregas);
 		
 		Plano barrio = new Plano(x,y);
-		Dron dron1 = new Dron(barrio,-3,3); //lo ubica en la posición -3,3 del plano
+		Dron dron1 = new Dron("D1",barrio,-3,3); //lo ubica en la posición -3,3 del plano
 		dron1.setDirection('S');
 		dron1.deliver(ruta);
 		
@@ -146,7 +146,7 @@ public class DronTest {
 		Ruta ruta = new Ruta(entregas);
 		
 		Plano barrio = new Plano(x,y);
-		Dron dron1 = new Dron(barrio,-2,4); //lo ubica en la posición -2,4 del plano
+		Dron dron1 = new Dron("D1",barrio,-2,4); //lo ubica en la posición -2,4 del plano
 		dron1.setDirection('N');
 		dron1.deliver(ruta);
 		
@@ -164,7 +164,7 @@ public class DronTest {
 		Ruta ruta = new Ruta(entregas);
 		
 		Plano barrio = new Plano(x,y);
-		Dron dron1 = new Dron(barrio,-3,3); //lo ubica en la posición -3,3 del plano
+		Dron dron1 = new Dron("D1",barrio,-3,3); //lo ubica en la posición -3,3 del plano
 		dron1.setDirection('S');
 		dron1.deliver(ruta);
 		
