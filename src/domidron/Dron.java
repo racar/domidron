@@ -1,6 +1,15 @@
 package domidron;
 
-
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Arrays;
+import java.util.List;
 
 public class Dron {
 	private String id;
@@ -50,19 +59,27 @@ public class Dron {
 		
 	}
 	
-	public void deliver(Ruta ruta){
-		
-		ruta.getEntregas().forEach(
-				(String entrega) -> {
-							 char[] comandos = entrega.toCharArray();
-								 for(int i= 0; i < comandos.length; ++i){
+	public void deliver(Ruta ruta) {
+		clearFile();
+		for(int j=0; j<ruta.getNumeroEntregas(); j++){
+		//ruta.getEntregas().forEach(
+		//		(String entrega) -> {
+							 char[] comandos = ruta.getEntregas().get(j).toCharArray();
+								 for(int i= 0; i < comandos.length; i++){
 									 actualizaPosicion(comandos[i]);
 								 }
-								reportarPosicion(); 
+								try {
+									reportarPosicion();
+									
+								} catch (IOException e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
+								} 
+								
 				
-							  }
-		);
-		
+			//				  }
+		//);
+		}
 		
 	}
 	
@@ -93,7 +110,30 @@ public class Dron {
 		}
 	}
 	
-	private void reportarPosicion(){
+	private void reportarPosicion() throws IOException{
+
 		
-	}
+		File f = new File("out.txt");
+		if (!f.exists()) {
+			f.createNewFile();
+			}
+		
+		PrintWriter out = new PrintWriter(new FileWriter(f, true));
+		out.println("("+this.getPosition_x()+","+this.getPosition_y()+") "+this.getDirection());
+		out.close();
+		
+	}	
+	
+	private void clearFile() {
+	
+			
+			File f = new File("out.txt");
+			if (f.exists()) {
+				f.delete();
+				}
+			
+			
+			
+		}
 }
+	

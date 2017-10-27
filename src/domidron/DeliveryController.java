@@ -14,22 +14,22 @@ public class DeliveryController {
 		// TODO Auto-generated method stub
 		
 		System.out.println("ok java");
-			DeliveryController dc = new DeliveryController();
-			ArrayList<String> entregas = dc.readInFile("src/domidron/in.txt");
-			int x[] = {-5,5};
-			int y[] = {-5,5};
-			Plano barrio = new Plano(x,y);
-			Ruta ruta = new Ruta(entregas);
-			
+		DeliveryController dc = new DeliveryController();	
+		ArrayList<String> entregas = dc.readInFile("in.txt"); //src/domidron/
 			Runnable task = () -> {
-			    
+				
+				
+				int x[] = {-5,5};
+				int y[] = {-5,5};
+				Plano barrio = new Plano(x,y);
+				Ruta ruta = new Ruta(entregas);
 			    Dron dron1 = new Dron("D1",barrio,0,0); //lo ubica en la posición 0,0 del plano
 			    System.out.println("Hello dron " + dron1.getId()+" que la fuerza te acompañe..");
 			    dron1.setDirection('N');
 			    dron1.deliver(ruta);
 			};
 
-			task.run();
+			//task.run();
 
 			Thread thread = new Thread(task);
 			thread.start();
