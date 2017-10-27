@@ -1,7 +1,17 @@
 package domidron;
 
+
+
 public class Dron {
 	private String id;
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
 	private int position_x;
 	private int position_y;
 	public int getPosition_x() {
@@ -39,17 +49,28 @@ public class Dron {
 		
 	}
 	
-	public void deliver(){
+	public void deliver(Ruta ruta){
+		
+		ruta.getEntregas().forEach(
+				(String entrega) -> {
+							 char[] comandos = entrega.toCharArray();
+								 for(int i= 0; i < comandos.length; ++i){
+									 actualizaPosicion(comandos[i]);
+								 }
+				
+							  }
+		);
+		
 		
 	}
 	
 	public void actualizaPosicion(char command){
 		if(command == 'A') {
 			switch(this.getDirection()){
-				case 'N': ++this.position_x; break;
-				case 'E': ++this.position_y; break;
-				case 'S': --this.position_x; break;
-				case 'W': --this.position_x; break;			
+				case 'N': this.position_y = this.position_y+1; break;
+				case 'E': this.position_x = this.position_x+1; break;
+				case 'S': this.position_y = this.position_y-1; break;
+				case 'W': this.position_x = this.position_x-1; break;			
 			}
 			
 		}else if(command == 'I'){
