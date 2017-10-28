@@ -80,6 +80,7 @@ public class Dron {
 			//				  }
 		//);
 		}
+		System.out.println("DRON "+ this.getId() + ":he terminado mi ruta.");
 		
 	}
 	
@@ -113,7 +114,7 @@ public class Dron {
 	private void reportarPosicion() throws IOException{
 
 		
-		File f = new File("out.txt");
+		File f = new File("out"+this.getId()+".txt");
 		if (!f.exists()) {
 			f.createNewFile();
 			}
