@@ -3,10 +3,7 @@ package domidron.test;
 import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
-import java.util.List;
-
 import org.junit.Test;
-
 import domidron.Dron;
 import domidron.Plano;
 import domidron.Ruta;
