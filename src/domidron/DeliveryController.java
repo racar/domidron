@@ -10,7 +10,7 @@ import java.io.IOException;
 
 public class DeliveryController {
 	
-	private static int numero_drones = 3;
+	private static int numero_drones = 20;
 
 	public static void main(String[] args) throws FileNotFoundException, IOException {
 		// TODO Auto-generated method stub

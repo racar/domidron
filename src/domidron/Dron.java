@@ -12,7 +12,14 @@ import java.util.Arrays;
 import java.util.List;
   
 public class Dron {
+	private Plano plano_operacion;
+	
+	public Plano getPlano_operacion() {
+		return plano_operacion;
+	}
+
 	private String id;
+	
 	public String getId() {
 		return id;
 	}
@@ -53,6 +60,7 @@ public class Dron {
 		this.id = id;
 		this.position_x = pos_x;
 		this.position_y = pos_y;
+		plano_operacion = plano;
 	}
 	
 	public void setRuta(Ruta ruta){
@@ -89,10 +97,27 @@ public class Dron {
 	public void actualizaPosicion(char command){
 		if(command == 'A') {
 			switch(this.getDirection()){
-				case 'N': this.position_y = this.position_y+1; break;
-				case 'E': this.position_x = this.position_x+1; break;
-				case 'S': this.position_y = this.position_y-1; break;
-				case 'W': this.position_x = this.position_x-1; break;			
+				case 'N': ++position_y;
+						  if(position_y > plano_operacion.getY()[1]) 
+							  System.out.println("Dron "+getId()+" por fuera del barrio. y="+position_y);
+						  
+							  break;
+				case 'E': ++position_x; 
+						  if(position_x > plano_operacion.getX()[1]) 
+							  System.out.println("Dron "+getId()+" por fuera del barrio. x="+position_x);
+						  
+						  
+							  break;
+				case 'S': --position_y; 
+						  if(position_y < plano_operacion.getY()[0]) 
+							  System.out.println("Dron "+getId()+" por fuera del barrio. y="+position_y);
+						  
+							  break;
+				case 'W': --position_x;
+						  if(position_x < plano_operacion.getX()[0]) 
+							  System.out.println("Dron "+getId()+" por fuera del barrio. x="+position_x);
+						  
+						  break;			
 			}
 			
 		}else if(command == 'I'){
@@ -138,5 +163,7 @@ public class Dron {
 			
 			
 		}
+	
+
 }
 	
