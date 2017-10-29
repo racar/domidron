@@ -20,6 +20,7 @@ public class DeliveryController {
 		//ArrayList<String> entregas = dc.readInFile("in.txt"); //src/domidron/
 		
 		for(int nd = 1; nd <= numero_drones; nd++){
+		    
 			ArrayList<String> entregas = dc.readInFile("in"+nd+".txt");
 			String dronID = nd+"";
 			Runnable task = () -> {

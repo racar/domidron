@@ -61,10 +61,11 @@ public class Dron {
 	
 	public void deliver(Ruta ruta) {
 		clearFile();
-		for(int j=0; j<ruta.getNumeroEntregas(); j++){
-		//ruta.getEntregas().forEach(
-		//		(String entrega) -> {
-							 char[] comandos = ruta.getEntregas().get(j).toCharArray();
+//		for(int j=0; j<ruta.getNumeroEntregas(); j++){
+		ruta.getEntregas().forEach(
+				(String entrega) -> {
+						//	 char[] comandos = ruta.getEntregas().get(j).toCharArray();
+							 char[] comandos = entrega.toCharArray();
 								 for(int i= 0; i < comandos.length; i++){
 									 actualizaPosicion(comandos[i]);
 								 }
@@ -75,11 +76,12 @@ public class Dron {
 									// TODO Auto-generated catch block
 									e.printStackTrace();
 								} 
-								
+								System.out.println("DRON "+ this.getId() + ":he terminado mi entrega. Posición Actual: ("+this.getPosition_x()+","+this.getPosition_y()+") "+this.getDirection());
 				
-			//				  }
-		//);
-		}
+							  }
+		);
+//		}
+		
 		System.out.println("DRON "+ this.getId() + ":he terminado mi ruta.");
 		
 	}
@@ -128,7 +130,7 @@ public class Dron {
 	private void clearFile() {
 	
 			
-			File f = new File("out.txt");
+			File f = new File("out"+this.getId()+".txt");
 			if (f.exists()) {
 				f.delete();
 				}
