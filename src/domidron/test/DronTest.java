@@ -3,10 +3,7 @@ package domidron.test;
 import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
-import java.util.List;
-
 import org.junit.Test;
-
 import domidron.Dron;
 import domidron.Plano;
 import domidron.Ruta;
@@ -131,6 +128,27 @@ public class DronTest {
 		assertEquals(-2,dron1.getPosition_x());
 		assertEquals(0,dron1.getPosition_y());
 		assertEquals('W',dron1.getDirection());
+		
+	}
+	
+	
+	
+	@Test
+	public void deliverTestRuta4(){
+		int x[] = {-5,5};
+		int y[] = {-5,5};
+		ArrayList<String> entregas = new ArrayList<String>();
+		entregas.add("AAAAIAAIAADAAAAAD");
+		Ruta ruta = new Ruta(entregas);
+		
+		Plano barrio = new Plano(x,y);
+		Dron dron1 = new Dron("DTestRuta4",barrio,0,0); //lo ubica en la posición -3,3 del plano
+		dron1.setDirection('N');
+		dron1.deliver(ruta);
+		
+		assertEquals(-7,dron1.getPosition_x());
+		assertEquals(2,dron1.getPosition_y());
+		assertEquals('N',dron1.getDirection());
 		
 	}
 	/******** CASOS POR REVISAR
