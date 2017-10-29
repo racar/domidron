@@ -5,6 +5,8 @@ import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 
 /*##### DOMIDRON
  * Clase de control, ejecute esta clase para poner en funcionamiento el programa.
@@ -23,9 +25,11 @@ public class DeliveryController {
 		//ArrayList<String> entregas = dc.readInFile("in.txt"); //src/domidron/
 		
 		for(int nd = 1; nd <= numero_drones; nd++){
-			 ArrayList<String> entregas = dc.readInFile("in"+nd+".txt");
+			 NumberFormat formatter = new DecimalFormat("00");  
+			 String dronID = formatter.format(nd);
+			 ArrayList<String> entregas = dc.readInFile("in"+dronID+".txt");
 			
-			String dronID = nd+"";
+			//String dronID = nd+"";
 			Runnable task = () -> {
 				
 				int x[] = {-5,5};
