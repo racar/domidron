@@ -20,7 +20,7 @@ public class DeliveryController {
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		
-		System.out.println("Iniciando Control - sistema de entregas");
+		System.out.println("Iniciando Control - Sistema de Entregas");
 		DeliveryController dc = new DeliveryController();	
 		//ArrayList<String> entregas = dc.readInFile("in.txt"); //src/domidron/
 		
